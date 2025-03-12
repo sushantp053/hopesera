@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import Navigation from '../../components/navigation';
 import products from '../../data/products';
 
 // Add additional product details that aren't in the main list
@@ -74,86 +73,86 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
   }
 
   return (
-    <>
-      <Navigation />
-      <div className="bg-white">
-        <div className="max-w-7xl mx-auto py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
-          <nav className="mb-4">
-            <Link href="/products" className="text-sm font-medium text-blue-600 hover:text-blue-500">
-              ← Back to Products
-            </Link>
-          </nav>
+    <div className="bg-white">
+      <div className="max-w-7xl mx-auto py-8 px-4 sm:py-12 sm:px-6 lg:px-8">
+        <nav className="mb-4">
+          <Link href="/products" className="text-sm font-medium text-blue-600 hover:text-blue-500 flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Products
+          </Link>
+        </nav>
 
-          <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 items-start">
-            {/* Product Image - positioned at the top */}
-            <div className="lg:sticky lg:top-20">
-              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-md">
-                <Image
-                  src={product.imageSrc}
-                  alt={product.imageAlt}
-                  className="w-full h-auto object-contain"
-                  width={600}
-                  height={600}
-                  priority
-                />
+        <div className="lg:grid lg:grid-cols-2 lg:gap-x-8 items-start">
+          {/* Product Image - positioned at the top */}
+          <div className="lg:sticky lg:top-20">
+            <div className="rounded-lg overflow-hidden border border-gray-200 shadow-md">
+              <Image
+                src={product.imageSrc}
+                alt={product.imageAlt}
+                className="w-full h-auto object-contain"
+                width={600}
+                height={600}
+                priority
+              />
+            </div>
+          </div>
+
+          {/* Product Details */}
+          <div className="mt-6 lg:mt-0">
+            <div>
+              <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">{product.name}</h1>
+
+              <div className="mt-2 flex gap-2">
+                <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                  product.available ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                }`}>
+                  {product.available ? 'In Stock' : 'Out of Stock'}
+                </span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                  {product.category}
+                </span>
               </div>
             </div>
 
-            {/* Product Details */}
-            <div className="mt-6 lg:mt-0">
-              <div>
-                <h1 className="text-3xl font-extrabold tracking-tight text-gray-900">{product.name}</h1>
+            <div className="mt-6">
+              <h3 className="text-lg font-medium text-gray-900">Description</h3>
+              <div className="mt-2 prose prose-sm text-gray-500">
+                <p>{details.longDescription}</p>
+              </div>
+            </div>
 
-                <div className="mt-2 flex gap-2">
-                  <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                    product.available ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                  }`}>
-                    {product.available ? 'In Stock' : 'Out of Stock'}
-                  </span>
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                    {product.category}
-                  </span>
+            <div className="mt-8 border-t border-gray-200 pt-8">
+              <h3 className="text-lg font-medium text-gray-900">Details</h3>
+              <dl className="mt-2 divide-y divide-gray-200">
+                <div className="py-3 flex justify-between">
+                  <dt className="text-sm font-medium text-gray-500">Dosage</dt>
+                  <dd className="text-sm text-gray-900">{details.dosage}</dd>
                 </div>
-              </div>
-
-              <div className="mt-6">
-                <h3 className="text-lg font-medium text-gray-900">Description</h3>
-                <div className="mt-2 prose prose-sm text-gray-500">
-                  <p>{details.longDescription}</p>
+                <div className="py-3 flex justify-between">
+                  <dt className="text-sm font-medium text-gray-500">Recommended Usage</dt>
+                  <dd className="text-sm text-gray-900">{details.usage}</dd>
                 </div>
-              </div>
+                <div className="py-3 flex justify-between">
+                  <dt className="text-sm font-medium text-gray-500">Possible Side Effects</dt>
+                  <dd className="text-sm text-gray-900">{details.sideEffects}</dd>
+                </div>
+              </dl>
+            </div>
 
-              <div className="mt-8 border-t border-gray-200 pt-8">
-                <h3 className="text-lg font-medium text-gray-900">Details</h3>
-                <dl className="mt-2 divide-y divide-gray-200">
-                  <div className="py-3 flex justify-between">
-                    <dt className="text-sm font-medium text-gray-500">Dosage</dt>
-                    <dd className="text-sm text-gray-900">{details.dosage}</dd>
-                  </div>
-                  <div className="py-3 flex justify-between">
-                    <dt className="text-sm font-medium text-gray-500">Recommended Usage</dt>
-                    <dd className="text-sm text-gray-900">{details.usage}</dd>
-                  </div>
-                  <div className="py-3 flex justify-between">
-                    <dt className="text-sm font-medium text-gray-500">Possible Side Effects</dt>
-                    <dd className="text-sm text-gray-900">{details.sideEffects}</dd>
-                  </div>
-                </dl>
-              </div>
-
-              <div className="mt-8 bg-blue-50 border border-blue-100 rounded-md p-4">
-                <h3 className="text-sm font-medium text-blue-800">Contact Information</h3>
-                <p className="mt-1 text-sm text-blue-700">
-                  For more information or to inquire about this product, please contact our customer service team.
-                </p>
-                <p className="mt-2 text-sm font-medium text-blue-800">
-                  Email: info@hopesera.com | Phone: (123) 456-7890
-                </p>
-              </div>
+            <div className="mt-8 bg-blue-50 border border-blue-100 rounded-md p-4">
+              <h3 className="text-sm font-medium text-blue-800">Contact Information</h3>
+              <p className="mt-1 text-sm text-blue-700">
+                For more information or to inquire about this product, please contact our customer service team.
+              </p>
+              <p className="mt-2 text-sm font-medium text-blue-800">
+                Email: info@hopesera.com | Phone: (123) 456-7890
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
