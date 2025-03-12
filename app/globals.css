@@ -2,15 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Add Times New Roman as default font family */
+@layer base {
+  html {
+    font-family: "Times New Roman", Times, serif;
+  }
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --hopesera-blue: #2a5caa;
+  --hopesera-light-blue: #63a7e6;
+  --hopesera-pink: #f37d8f;
+  --hopesera-light-pink: #fcd3d9;
+  --hopesera-gold: #e5b36a;
+  --hopesera-cream: #fdf6ee;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
   }
 }
 
@@ -18,4 +33,61 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer components {
+  /* Custom button styles */
+  .btn-primary {
+    @apply bg-hopesera-blue hover:bg-hopesera-light-blue text-white rounded-md px-4 py-2 
+           shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply bg-white border border-hopesera-blue text-hopesera-blue hover:bg-hopesera-cream 
+           rounded-md px-4 py-2 shadow-sm hover:shadow-md transform hover:scale-105 transition-all duration-300;
+  }
+
+  .btn-accent {
+    @apply bg-hopesera-pink hover:opacity-90 text-white rounded-md px-4 py-2 
+           shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300;
+  }
+  
+  /* Card styles */
+  .hopesera-card {
+    @apply bg-white rounded-lg shadow-md hover:shadow-xl p-6 
+           transition-all duration-300 hover:-translate-y-1;
+  }
+
+  /* Animation classes */
+  .animate-slide-up {
+    @apply opacity-0 translate-y-8;
+    animation: slideUp 0.8s forwards;
+    animation-delay: calc(var(--animation-delay, 0) * 100ms);
+  }
+
+  .animate-fade-in {
+    @apply opacity-0;
+    animation: fadeIn 0.8s forwards;
+    animation-delay: calc(var(--animation-delay, 0) * 100ms);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
