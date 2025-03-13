@@ -147,7 +147,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
                 For more information or to inquire about this product, please contact our customer service team.
               </p>
               <p className="mt-2 text-sm font-medium text-blue-800">
-                Email: info@hopesera.com | Phone: (123) 456-7890
+                Email: support@hopesera.com | Phone: (+91) 9225515554
               </p>
             </div>
           </div>
