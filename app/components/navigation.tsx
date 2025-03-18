@@ -37,6 +37,7 @@ export default function Navigation() {
       return pathname === '/' && href.startsWith('/#');
     }
     if (href === '/products') return pathname === '/products' || pathname.startsWith('/products/');
+    if (href === '/faq') return pathname === '/faq';
     return pathname.startsWith(href);
   };
 
