@@ -134,7 +134,7 @@ export default function AboutUs() {
                     animate={inView ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                   >
-                    About <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-600">HopeSera</span>
+                    About <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-pink-600">Hope Sera Pvt.Ltd</span>
                   </motion.h2>
                   
                   <motion.div
@@ -151,7 +151,7 @@ export default function AboutUs() {
                       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
                       transition={{ duration: 0.6, delay: 0.5 }}
                     >
-                      At <span className="font-medium text-indigo-700">HopeSera</span>, we are dedicated to revolutionizing women&apos;s healthcare with
+                      At <span className="font-medium text-indigo-700">Hope Sera Pvt.Ltd</span>, we are dedicated to revolutionizing women&apos;s healthcare with
                       innovative solutions and compassionate care. Our mission is to empower
                       women through accessible, effective treatments, and holistic support.
                     </motion.p>
@@ -169,27 +169,6 @@ export default function AboutUs() {
                     </motion.p>
                   </div>
                   
-                  <motion.div 
-                    className="mt-8 flex gap-4"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                    transition={{ duration: 0.6, delay: 0.7 }}
-                  >
-                    <div className="flex flex-col items-center p-4 bg-gradient-to-br from-white to-indigo-50 rounded-lg border border-indigo-100 shadow-sm">
-                      <div className="text-3xl font-bold text-indigo-700">10+</div>
-                      <div className="text-sm text-gray-600">Years Experience</div>
-                    </div>
-                    
-                    <div className="flex flex-col items-center p-4 bg-gradient-to-br from-white to-pink-50 rounded-lg border border-pink-100 shadow-sm">
-                      <div className="text-3xl font-bold text-pink-700">20k+</div>
-                      <div className="text-sm text-gray-600">Women Helped</div>
-                    </div>
-                    
-                    <div className="flex flex-col items-center p-4 bg-gradient-to-br from-white to-purple-50 rounded-lg border border-purple-100 shadow-sm">
-                      <div className="text-3xl font-bold text-purple-700">95%</div>
-                      <div className="text-sm text-gray-600">Satisfaction</div>
-                    </div>
-                  </motion.div>
                 </motion.div>
               </div>
               
@@ -216,17 +195,6 @@ export default function AboutUs() {
                       Our vision is to create a world where women have equal access to healthcare innovations and where their unique health needs are prioritized and addressed with the utmost care and respect.
                     </p>
                     
-                    <div className="relative mt-8 flex items-center">
-                      <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                      </div>
-                      <div className="ml-4">
-                        <p className="text-white font-medium">Dr. Sarah Chen</p>
-                        <p className="text-indigo-200 text-sm">Founder & Chief Medical Officer</p>
-                      </div>
-                    </div>
                   </blockquote>
                 </motion.div>
               </div>

@@ -232,14 +232,27 @@ export default function Footer() {
           >
             <div className="flex flex-col items-start mb-4">
               <div className="w-full max-w-[150px] mb-4 relative">
-                <Image
-                  alt="Hope Sera Logo"
-                  src={wide}
-                  className="h-auto w-full object-contain"
-                  width={150}
-                  height={45}
-                  priority
-                />
+                {/* Made background more transparent while maintaining visibility */}
+                <motion.div 
+                  className="p-3 rounded-lg bg-white/70 shadow-xl backdrop-blur-sm"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Image
+                    alt="Hope Sera Logo"
+                    src={wide}
+                    className="h-auto w-full object-contain"
+                    width={170}
+                    height={55}
+                    priority
+                  />
+                </motion.div>
+                
+                {/* Enhanced colorful glow effect with increased opacity */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-80 rounded-lg blur-sm -z-10"></div>
+                
+                {/* Enhanced outer glow for better depth */}
+                <div className="absolute -inset-3 bg-white/15 rounded-xl blur-md -z-20"></div>
               </div>
               <p className="text-sm text-gray-400 mb-4">
                 Innovative healthcare solutions empowering women worldwide.
